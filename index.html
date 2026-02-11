@@ -81,17 +81,16 @@ and what
     			.active {
 			     	background-color: #04AA6D;
     			}
-			.topnav {
-			      	position: fixed;
-      				right: 0;
-      				left: 0;
-      				top: 0;
-      				bottom: 0;
-      				height: 45;
-      				width: auto;
-      				z-index: 100;
-      				background-color: #0c0e15;
-   			}
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45px;
+  z-index: 100;
+  background-color: #0c0e15;
+}
+
     			.topnav a {
       				float: left;
       				color: #fff;
@@ -393,10 +392,15 @@ i am currently <img src="https://moods.imood.com/display/uname-komi/bg-666/imood
 
 
 <script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
   window.addEventListener("load", function () {
     window.scrollTo(0, 0);
   });
 </script>
+
 
 
 		<script>
@@ -434,4 +438,5 @@ i am currently <img src="https://moods.imood.com/display/uname-komi/bg-666/imood
         			i += direction;
     			}, 300);
 		</script>
+
 
