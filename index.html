@@ -1,0 +1,431 @@
+<!--
+top bar stolen from pedo.land
+
+and what
+-->
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#bg-video {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				z-index: -1;
+				height: 100%;
+				object-fit: cover;
+				pointer-events: none;
+				background: black;
+			}
+			#overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.6);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: white;
+				font-size: 2rem;
+				cursor: pointer;
+				z-index: 1000;
+				opacity: 1;
+				transition: opacity 1s ease-in-out;
+			}
+    			.title {
+			        -webkit-animation: fadein 2s;
+			      	font-weight: bold;
+			      	line-height: 1;
+			      	font-size: 30px;
+			      	user-select: none;
+			      	color: purple;
+			   	background: repeating-linear-gradient(120deg, #3399FF 0%, #DB7093 40%, #3399FF 60%);
+			   	background-size: 60vw 60vw;
+			   	-webkit-text-fill-color: transparent;
+			   	-webkit-background-clip: text;
+			   	animation: slide 5s linear infinite forwards;
+				border-width: 0px;
+				text-align: center;
+    			}
+			pre {
+				display: block;
+  				padding: 9.5px;
+				margin: 0 0 10px;
+				font-size: 13px;
+				line-height: 1.42857143;
+   				word-break: break-all;
+  				word-wrap: break-word;
+			  	color: #333333;
+			 	background-color: #f5f5f5;
+			  	border: 1px solid #cccccc;
+    				border-top-width: 1px;
+			    	border-right-width: 1px;
+    				border-bottom-width: 1px;
+	    			border-left-width: 1px;
+				border-radius: 4px;
+			}
+		        html {
+		          	overflow-x: hidden;
+		        }
+      			.center {
+        			text-align: center;
+      			}
+			body {
+				text-align: center;
+			}
+    			.active {
+			     	background-color: #04AA6D;
+    			}
+			.topnav {
+			      	position: fixed;
+      				right: 0;
+      				left: 0;
+      				top: 0;
+      				bottom: 0;
+      				height: 45;
+      				width: auto;
+      				z-index: 100;
+      				background-color: #0c0e15;
+   			}
+    			.topnav a {
+      				float: left;
+      				color: #fff;
+      				text-align: center;
+      				padding: 14px 16px;
+      				text-decoration: none;
+      				font-size: 17px;
+    			}
+    			.topnav a:hover {
+      				background-color: #0f111a;
+      				color: #0063cc;
+    			}
+    			.topnav a.active {
+      				background-color: #0063cc;
+      				color: white;
+    			}
+    			.topnav-right {
+      				float: right;
+    			}
+  			table {
+    				border-collapse: collapse;
+    				width: 220px;
+    				background-color:;
+    				border: 4px solid #e6a800; /* gold border */
+    				font-family: Arial, sans-serif;
+    				text-align: center;
+  			}
+  			th {
+    				border-bottom: 4px solid #e6a800;
+    				padding: 10px 0;
+    				font-size: 22px;
+    				color: #e6a800;
+    				font-weight: bold;
+  			}
+  			td {
+    				padding: 18px 0;
+    				font-size: 22px;
+    				color: #e6a800;
+				text-shadow: 2px 2px 5px gold;
+  			}
+    			@keyframes slide {
+			      0% {
+			        background-position-x: 0%;
+			      }
+			      100% {
+			        background-position-x: 60vw;
+			      }
+			    }    
+		     	@keyframes slide2 {
+      				0% {
+				        background-position-x: 0%;
+				      }
+			      100% {
+			     background-positn-x: 60vw;
+			   }
+			 }
+
+.twitter-btn {
+  font: normal normal normal 13px/26px 'Helvetica Neue',Arial,sans-serif;
+	height: 28px;
+	border-radius: 4px;
+
+	position: relative;
+	background-color: #F8F8F8;
+ 
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#FFF),to(#DEDEDE));
+	background-image: -moz-linear-gradient(top,#FFF,#DEDEDE);
+	background-image: -o-linear-gradient(top,#FFF,#DEDEDE);
+	background-image: -ms-linear-gradient(top,#FFF,#DEDEDE);
+	background-image: linear-gradient(top,#FFF,#DEDEDE);
+	border: #CCC solid 1px;
+	color: #333;
+	font-weight: bold;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+	cursor: pointer;
+	overflow: hidden;
+	display: inline-block;
+
+	zoom: 1;
+	text-decoration: none;
+}
+ 
+.twitter-btn:hover {
+	text-decoration: none;
+}
+ 
+.twitter-btn i {
+	width: 21px;
+	height: 16px;
+	left: 4px;
+	margin-top: -6px;
+	position: absolute;
+	top: 50%;
+	background: rgba(0, 0, 0, 0) url(data:image/png;base64,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) 0 0 no-repeat;
+	background-position: -24px 0;
+}
+ 
+.twitter-btn .label {
+	padding: 0 7px 0 29px;
+	white-space: nowrap;
+}
+.x {
+	color: pink;
+}
+		</style>
+
+	<head>
+	
+	<body>
+		<video id="bg-video" preload="auto" loop="loop"></video>
+		<div id="overlay">Click to Enter</div>
+
+<div class="topnav">
+      <a class="#active" target="_blank" href="index.html">Home</a>
+       <a class="#active" href="https://vx-underground.org/"><span style="color:tomato">FREE</span> MALWARE!!!</a>
+       <a class="#active" href="machine.html">Machine Learning</a>
+      <a class="#active" href="tools.html" target="_blank">HACKING TOOLS</a>
+       <a class="#active" href="ddos.html">DDOS Tool!</a>
+       <a class="#active" href="vpn.html">Privacy VPN Services</a>
+       <a class="#active" target="_blank" href="pgp.txt">PGP</a>
+      <div class="topnav-right">
+<marquee>
+<p>
+        <a href="mailto:contact@fbi.gov">
+          <i class="bx bx-envelope"></i>
+          Email: thaliajubair@cumallover.me
+        </a>
+</p>
+</marquee>
+      </div>
+    </div>
+	<br>
+	<br>
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''IPLOGGER') values(3.236.80.119)' at line 1
+<br>
+<br>
+<br>
+<img src="shiny.png"   height="54px">
+<pre class="title">
+official <a href="https://t.me/thighpictures">ThighPictures</a> original
+                                         
+                                         
+▄▄                    ▀▀                 
+██ ▄█▀ ▄███▄ ███▄███▄ ██     ████▄ ▄█▀▀▀ 
+████   ██ ██ ██ ██ ██ ██     ██ ▀▀ ▀███▄ 
+██ ▀█▄ ▀███▀ ██ ██ ██ ██▄ ██ ██    ▄▄▄█▀ 
+                                         
+       
+SPONSORED BY:
+vx-underground ✔️
+linkedin ✔️
+mossad ✔️
+the chilean government ✔️
+virgin media o2 ✔️
+the rust language ✔️
+</pre>
+<br>
+<br>
+i am currently <img src="https://moods.imood.com/display/uname-komi/bg-666/imood.gif" alt="" border="0">
+<br>
+<br>
+<br>
+<img src="hide.gif">
+<br>
+<br>
+
+
+<h3 class="title">OGUs i own:</h3>
+<center>
+<div style="background: rgba(0, 0, 0, 0.5); color: white; max-width: 600px; text-shadow: 1px 2px 3px pink;">
+<ul>
+<li>4x Linkedin</li>
+<li>1x telegram</li>
+<li>3x minecraft</li>
+<li>1x discord</li>
+<li>117x codeberg.org</li>
+<li>1x steam</li>
+<li>1x toncoin</li>
+<li>6x getgems</li>
+</ul>
+</div>
+</center>
+<br>
+<h3 class="title">current amount of bitcoin spent by me: $52,103,354</h3>
+<h3 class="title">toncoin: <a href="https://getgems.io/nintendo3ds">nintendo3ds.ton</a></h3>
+<br>
+<center>
+<div style="background: rgba(0, 0, 0, 0.5); color: white; max-width: 600px; text-shadow: 1px 2px 3px pink;">
+<p>upcoming bedwars professional</p>
+<iframe src="https://nadeshiko.io/card/eyJuYW1lIjoidm1vMiIsImdhbWUiOiJORVRXT1JLIiwic2l6ZSI6IlRJTlkifQ==" height="70px"></iframe>
+</div>
+<br>
+<br>
+        <form action="search.php" method="get">
+            <input type="text" name="q" placeholder="Osint Tool" autofocus>
+            <input type="submit" value="Search">
+        </form>
+
+        <form action="search.php" method="get">
+            <input type="text" name="q" placeholder="Search for linkedin OGUs" autofocus>
+            <input type="submit" value="Search">
+        </form>
+<br>
+<br>
+<div style="">
+<a target="_blank" class="twitter-btn" title="Follow @SlittingHearts on Twitter" href="https://twitter.com/intent/follow?screen_name=SlittingHearts">
+	<i></i>
+	<span class="label">@komi</span>
+</a>
+</div>
+<br>
+<br>
+<h2 style="color:lime"> follow my codeberg. <a style="color:green" href="https://codeberg.org/komi">@komi</a> and <a style="color:green" href="https://codeberg.org/btw">@btw</a> and <a style="color:green" href="https://codeberg.org/slut">@slut</a>
+<div style="background: rgba(0, 0, 0, 0.5); color: white; max-width: 600px;">
+<h2><span style="color:red">VirginMedia</span><span style="color: blue">o2</span> is the greatest telecom company ever<br>Follow my namemc. Minecraft IGN <span style="color:red">vm</span><span style="color:blue">o2</span><a style="color: white" href="https://nmc.is/vmo2">(here)</a></h2>
+</h2>
+</div>
+<br>
+<br>
+<h2 style="color: gold; text-shadow: 2px 2px 2px gold;">TERMS FOR GOD RANK SALE</h2>
+<table>
+  <tr>
+    <th><img src="god.png"</th>
+  </tr>
+  <tr><td>Be Under 13</td></tr>
+  <tr><td>Follow @xml on twitter</td></tr>
+  <tr><td>Have 5k+ rep</td></tr>
+  <tr><td>Leak the komi.rs database</td></tr>
+</table>
+<br>
+<br>
+<img src="will.png">
+<br>
+<br>
+<h3 class="title">shoutout to my twitter.com fanbase</h3>
+<p class="x">@1mf <img src="follows.png" height="13px"></p>
+<p class="x">@_JohnHammond <img src="follows.png" height="13px"></p>
+<p class="x">@vxdb <img src="follows.png" height="13px"></p>
+<p class="x">@MaryAnnMcCarra<img src="follows.png" height="13px"></p>
+<p class="x">@vxunderground <img src="follows.png" height="13px"></p>
+<p class="x">@hckmanxd <img src="follows.png" height="13px"></p>
+<p class="x">@o2 <img src="follows.png" height="13px"></p>
+<br>
+<img src="troia.png">
+<br><br><br>
+<h1 class="title">goals for 2026</h1>
+<h3 class="title">100 mil on tiktok, bluesky, twitter and telegram (and my bank)</h3>
+<br><br><br>
+
+<h1 class="title">rust >>>> python</h1>
+<img src="trans.png">
+<br>
+<br>
+<br>
+<h3 class="title">cooked for my NEA</h3>
+<br>
+<br>
+<br>
+<div style="visibility: visible;display:flex;justify-content:center;align-items:center;">
+  <div>
+      <div style="margin:20px;">
+          <div class="name" style="color: white; font-family: monospace;">IntelBroker</div>
+          <div style="opacity:0.5;font-weight:700; font-family: monospace;">fedded</div>
+      </div>
+      <div style="margin:20px;">
+          <div class="name" style="color: white; font-family: monospace;">Eom</div>
+          <div style="opacity:0.5;font-weight:700; font-family: monospace;">hit by train</div>
+      </div>
+      <div style="margin:20px;">
+          <div class="name" style="color: white; font-family: monospace;">pongo</div>
+          <div style="opacity:0.5;font-weight:700; font-family: monospace;">killed by north korea</div>
+      </div>
+  </div> <img src="anime.png" style="width: 200px;margin-left:50px;">
+</div>
+<br>
+<br>
+<h1 class="title"><a href="https://t.me/ThighPictures">https://t.me/ThighPictures</a></h1>
+<br>
+<h2 style="background-color: red;">KOMI VPN WRITTEN IN RUST AND HTML 100% PRIVACY NO LOGS</h2>
+<div style="background-color: tomato;">
+<ul>
+<li>OpenVPN cuz its safer than wireguard</li>
+<li>DDoS protected</li>
+<li>cheaper than Mullvad</li>
+<li>Payment via Bank Transfer or PayPal</li>
+<li>Includes linkedin OGU</li>
+<li>UNNULLABLE & UNHACKABLE</li>
+<li>Pentested by siegedsec</li>
+<li>Passwords securely Encrypted in Base64</li>
+<li>No Spying Allowed</li>
+</ul>
+</div>
+<br>
+<br>
+<br>
+<h1 class="title"> officially nintendo 3ds biggest fan </h1>
+<h1 class="title"> officially followed by pompompurins mother </h1>
+<h1 class="title"> pavel durov is my father </h1>
+
+
+
+
+		<script>
+			const overlay = document.getElementById('overlay');
+			const video = document.getElementById('bg-video');
+			const videos = ['trump.mp4'];
+			const chosenVideo = videos[Math.floor(Math.random() * videos.length)];
+			const source = document.createElement('source');
+			source.src = chosenVideo;
+			source.type = 'video/mp4';
+			video.appendChild(source);
+
+			overlay.addEventListener('click', () => {
+				overlay.style.opacity = '0';
+		
+				video.play().catch(err => {
+					console.log('Video play failed:', err);
+				});
+
+				setTimeout(() => {
+					overlay.style.display = 'none';
+				}, 1000);
+			});
+		</script>
+		<script>
+			let title = 'komi.rs as seen on MTV';
+			let i = 0;
+    			setInterval(() => {
+        			document.title = title.substring(0, i + 1);
+        			if (i == 0) {
+            				direction = 1;
+        			} else if (i == title.length) {
+            				direction = -1;
+        			}
+        			i += direction;
+    			}, 300);
+		</script>
